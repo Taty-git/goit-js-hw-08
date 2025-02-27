@@ -81,7 +81,12 @@ gallery.innerHTML = galleryItems.join('');
 gallery.addEventListener('click', function(event) {
     if (event.target.tagName === 'IMG') {
         event.preventDefault(); 
-        const largeImageUrl = event.target.dataset.source;  
-        console.log(largeImageUrl);
-    }
+      const largeImageUrl = event.target.dataset.source;  
+        
+      const lightbox = basicLightbox.create(`
+            <img src="${largeImageUrl}" width="800" height="600">
+        `);
+        lightbox.show();
+  }
+  
 });
